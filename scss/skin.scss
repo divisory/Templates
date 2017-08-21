@@ -1,0 +1,151 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	outline: none !important;
+}
+
+@mixin placeholder($color){
+	&::-webkit-input-placeholder {
+		color: #{$color};
+	}
+	&:-moz-placeholder {
+		color: #{$color};
+	}
+	&::-moz-placeholder {
+		color: #{$color};
+	}
+	&:-ms-input-placeholder {
+		color: #{$color};
+	}
+}
+
+
+html, body {
+	width: 100%; height: 100%;
+	font-size: 14px;
+	font-family: $font;
+	font-weight: 400;
+	color: #444;
+	line-height: 20px;
+
+	&.overlayed {
+		overflow: hidden !important;
+	}
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: $link;
+	transition: .2s;
+	position: relative;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: $link-hover;
+	}
+}
+
+.clear {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.clear-col {
+	padding-left: 0;
+	padding-right: 0;
+}
+.none {
+	display: none;
+}
+
+.adaptive {
+	display: block;
+	width: 100%; height: auto;
+	margin: 0;
+}
+
+.owl-item {
+	transform: translateZ(0);
+}
+
+.align-right {
+	text-align: right;
+}
+.align-center {
+	text-align: center;
+}
+.align-left {
+	text-align: left;
+}
+
+/*cover image*/
+.image-cover {
+	display: block;
+	position: relative;
+	padding-top: 100%;
+	overflow: hidden;
+	transform: translateZ(0);
+
+	img {
+		position: absolute;
+		top: 0; left: 50%;
+		height: 100%; width: auto;
+		transform: translateX(-50%);
+
+		&.vertical {
+			top: 50%; left: 0;
+			height: auto; width: 100%;
+			transform: translateY(-50%);
+		}
+	}
+}
+/*contain image*/
+.image-contain {
+	display: block;
+	position: relative;
+	padding-top: 100%;
+	overflow: hidden;
+	transform: translateZ(0);
+
+	img {
+		position: absolute;
+		top: 50%; left: 50%;
+		height: auto; width: auto;
+		max-width: 100%; max-height: 100%;
+		transform: translate(-50%,-50%);
+	}
+}
+
+/*vertical align*/
+.verticaly-top,
+.verticaly-middle,
+.verticaly-bottom {
+	width: 100%; height: 100%;
+	white-space: nowrap;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 0; height: 100%;
+	}
+	.inner {
+		display: inline-block;
+		width: 100%;
+		white-space: normal;
+	}
+}
+.verticaly-top:after,
+.verticaly-top .inner {
+	vertical-align: top;
+}
+.verticaly-middle:after,
+.verticaly-middle .inner {
+	vertical-align: middle;
+}
+.verticaly-bottom:after,
+.verticaly-bottom .inner {
+	vertical-align: bottom;
+}
